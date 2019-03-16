@@ -100,6 +100,15 @@ function upload_to_S3 (){
     f2_ng=$(find $(pwd) -type f -name "*ANG.txt")
     f3_ng=$(find $(pwd) -type f -name "*MTL.txt")
 
+    f1_nng=${f1_ng##*/}
+    f1_ngf=${f1_nng%.xml}
+
+    f2_nng=${f2_ng##*/}
+    f2_ngf=${f2_nng%.txt}
+
+    f3_nng=${f3_ng##*/}
+    f3_ngf=${f3_nng%.txt}
+
     b1_nng=${b1_ng##*/}
     b1_ngf=${b1_nng%.tif}
 
@@ -142,13 +151,10 @@ function upload_to_S3 (){
     echo "Subiendo $bq_ng a S3: $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng"
     aws s3 cp $bq_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng --quiet
 
-    echo "Subiendo $bq_ng a S3: $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng"
-    aws s3 cp $bq_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng --quiet
-
     echo "Subiendo archivos de metadatos"
-    aws s3 cp $f1_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f1_ng --quiet
-    aws s3 cp $f2_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f2_ng --quiet
-    aws s3 cp $f3_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f3_ng --quiet
+    aws s3 cp $f1_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f1_nng --quiet
+    aws s3 cp $f2_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f2_nng --quiet
+    aws s3 cp $f3_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f3_nng --quiet
 
 
 }
