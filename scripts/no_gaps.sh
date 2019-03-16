@@ -88,17 +88,17 @@ function fill_nodata (){
 }
 
 function upload_to_S3 (){
-    b1_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band1*")
-    b2_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band2*")
-    b3_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band3*")
-    b4_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band4*")
-    b5_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band5*")
-    b7_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band7*")
-    bq_ng=$(find $(pwd) -maxdepth 1 -type f -name "*pixel_qa*")
+    b1_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band1.tif")
+    b2_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band2.tif")
+    b3_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band3.tif")
+    b4_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band4.tif")
+    b5_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band5.tif")
+    b7_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band7.tif")
+    bq_ng=$(find $(pwd) -maxdepth 1 -type f -name "*pixel_qa.tif")
 
-    f1_ng=$(find $(pwd) -maxdepth 1 -type f -name "*T1.xml")
-    f2_ng=$(find $(pwd) -maxdepth 1 -type f -name "*ANG.txt")
-    f3_ng=$(find $(pwd) -maxdepth 1 -type f -name "*MTL.txt")
+    f1_ng=$(find $(pwd) -type f -name "*T1.xml")
+    f2_ng=$(find $(pwd) -type f -name "*ANG.txt")
+    f3_ng=$(find $(pwd) -type f -name "*MTL.txt")
 
     b1_nng=${b1_ng##*/}
     b1_ngf=${b1_nng%.tif}
