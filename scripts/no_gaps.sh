@@ -8,7 +8,7 @@ PATH_S3_NO_GAP="s3://conabio-s3-oregon/linea_base/"
 function get_scene (){
     echo "Descargando escena" $PATH_S3$1
     mkdir -p $1
-    aws s3 cp $PATH_S3$1 $1 --exclude \"*xml\" --exclude \"*txt\" --recursive --quiet
+    aws s3 cp $PATH_S3$1 $1 --recursive --quiet
 }
 
 function fill_nodata (){
@@ -62,39 +62,43 @@ function fill_nodata (){
     echo "Generando máscara para banda 7"
     gdal_calc.py -A $b7 --outfile=$b7_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
 
-    echo "Generando máscara para pixel-qa\n"
+    echo "Generando máscara para pixel-qa"
     gdal_calc.py -A $bq --outfile=$bq_f"_mask.tif" --calc="$CALC_QA" --co="COMPRESS=LZW" --NoDataValue=0 --quiet
 
     echo "Fill-nodata para banda 1"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b1_f"_mask.tif" -of GTiff $b1 $b1_f"_nogaps.tif"
+    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b1_f"_mask.tif" -of GTiff $b1 $b1_f".tif"
 
     echo "Fill-nodata para banda 2"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b2_f"_mask.tif" -of GTiff $b2 $b2_f"_nogaps.tif"
+    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b2_f"_mask.tif" -of GTiff $b2 $b2_f".tif"
 
     echo "Fill-nodata para banda 3"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b3_f"_mask.tif" -of GTiff $b3 $b3_f"_nogaps.tif" 
+    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b3_f"_mask.tif" -of GTiff $b3 $b3_f".tif" 
 
     echo "Fill-nodata para banda 4"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b4_f"_mask.tif" -of GTiff $b4 $b4_f"_nogaps.tif"
+    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b4_f"_mask.tif" -of GTiff $b4 $b4_f".tif"
 
     echo "Fill-nodata para banda 5"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b5_f"_mask.tif" -of GTiff $b5 $b5_f"_nogaps.tif" 
+    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b5_f"_mask.tif" -of GTiff $b5 $b5_f".tif" 
 
     echo "Fill-nodata para banda 7"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b7_f"_mask.tif" -of GTiff $b7 $b7_f"_nogaps.tif" 
+    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b7_f"_mask.tif" -of GTiff $b7 $b7_f".tif" 
 
     echo "Fill-nodata para pixel-qa"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $bq_f"_mask.tif" -of GTiff $bq $bq_f"_nogaps.tif" 
+    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $bq_f"_mask.tif" -of GTiff $bq $bq_f".tif" 
 }
 
 function upload_to_S3 (){
-    b1_ng=$(find $(pwd) -type f -name "*band1_nogaps*")
-    b2_ng=$(find $(pwd) -type f -name "*band2_nogaps*")
-    b3_ng=$(find $(pwd) -type f -name "*band3_nogaps*")
-    b4_ng=$(find $(pwd) -type f -name "*band4_nogaps*")
-    b5_ng=$(find $(pwd) -type f -name "*band5_nogaps*")
-    b7_ng=$(find $(pwd) -type f -name "*band7_nogaps*")
-    bq_ng=$(find $(pwd) -type f -name "*pixel_qa_nogaps*")
+    b1_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band1*")
+    b2_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band2*")
+    b3_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band3*")
+    b4_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band4*")
+    b5_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band5*")
+    b7_ng=$(find $(pwd) -maxdepth 1 -type f -name "*band7*")
+    bq_ng=$(find $(pwd) -maxdepth 1 -type f -name "*pixel_qa*")
+
+    f1_ng=$(find $(pwd) -maxdepth 1 -type f -name "*T1.xml")
+    f2_ng=$(find $(pwd) -maxdepth 1 -type f -name "*ANG.txt")
+    f3_ng=$(find $(pwd) -maxdepth 1 -type f -name "*MTL.txt")
 
     b1_nng=${b1_ng##*/}
     b1_ngf=${b1_nng%.tif}
@@ -137,6 +141,16 @@ function upload_to_S3 (){
 
     echo "Subiendo $bq_ng a S3: $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng"
     aws s3 cp $bq_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng --quiet
+
+    echo "Subiendo $bq_ng a S3: $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng"
+    aws s3 cp $bq_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$bq_nng --quiet
+
+    echo "Subiendo archivos de metadatos"
+    aws s3 cp $f1_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f1_ng --quiet
+    aws s3 cp $f2_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f2_ng --quiet
+    aws s3 cp $f3_ng $PATH_S3_NO_GAP"L7_NOGAPS/"$1$f3_ng --quiet
+
+
 }
 
 function delete_files (){
