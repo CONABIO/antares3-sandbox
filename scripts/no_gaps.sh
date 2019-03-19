@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+# launch configuration: m5xlarge_for_sentinel2_preproc_sge_asgp
+# slots: 1
 # example: bash no_gaps.sh LE070180452014072601T1-SC20180606133026/
 
 PATH_S3="s3://conabio-s3-oregon/linea_base/L7/"
@@ -44,47 +47,48 @@ function fill_nodata (){
     CALC="0*(A==-9999)+1*(A!=-9999)"
     CALC_QA="0*(A==1)+1*(A!=1)"
     
+    ruta=/home/ubuntu/anaconda/bin/
     echo "Generando máscara para banda 1"
-    gdal_calc.py -A $b1 --outfile=$b1_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
+    $ruta/gdal_calc.py -A $b1 --outfile=$b1_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
 
     echo "Generando máscara para banda 2"
-    gdal_calc.py -A $b2 --outfile=$b2_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
+    $ruta/gdal_calc.py -A $b2 --outfile=$b2_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
 
     echo "Generando máscara para banda 3"
-    gdal_calc.py -A $b3 --outfile=$b3_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
+    $ruta/gdal_calc.py -A $b3 --outfile=$b3_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
 
     echo "Generando máscara para banda 4"
-    gdal_calc.py -A $b4 --outfile=$b4_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
+    $ruta/gdal_calc.py -A $b4 --outfile=$b4_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
 
     echo "Generando máscara para banda 5"
-    gdal_calc.py -A $b5 --outfile=$b5_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
+    $ruta/gdal_calc.py -A $b5 --outfile=$b5_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
 
     echo "Generando máscara para banda 7"
-    gdal_calc.py -A $b7 --outfile=$b7_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
+    $ruta/gdal_calc.py -A $b7 --outfile=$b7_f"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW" --quiet
 
     echo "Generando máscara para pixel-qa"
-    gdal_calc.py -A $bq --outfile=$bq_f"_mask.tif" --calc="$CALC_QA" --co="COMPRESS=LZW" --NoDataValue=0 --quiet
+    $ruta/gdal_calc.py -A $bq --outfile=$bq_f"_mask.tif" --calc="$CALC_QA" --co="COMPRESS=LZW" --NoDataValue=0 --quiet
 
     echo "Fill-nodata para banda 1"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b1_f"_mask.tif" -of GTiff $b1 $b1_f".tif"
+    $ruta/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b1_f"_mask.tif" -of GTiff $b1 $b1_f".tif"
 
     echo "Fill-nodata para banda 2"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b2_f"_mask.tif" -of GTiff $b2 $b2_f".tif"
+    $ruta/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b2_f"_mask.tif" -of GTiff $b2 $b2_f".tif"
 
     echo "Fill-nodata para banda 3"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b3_f"_mask.tif" -of GTiff $b3 $b3_f".tif" 
+    $ruta/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b3_f"_mask.tif" -of GTiff $b3 $b3_f".tif" 
 
     echo "Fill-nodata para banda 4"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b4_f"_mask.tif" -of GTiff $b4 $b4_f".tif"
+    $ruta/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b4_f"_mask.tif" -of GTiff $b4 $b4_f".tif"
 
     echo "Fill-nodata para banda 5"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b5_f"_mask.tif" -of GTiff $b5 $b5_f".tif" 
+    $ruta/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b5_f"_mask.tif" -of GTiff $b5 $b5_f".tif" 
 
     echo "Fill-nodata para banda 7"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b7_f"_mask.tif" -of GTiff $b7 $b7_f".tif" 
+    $ruta/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $b7_f"_mask.tif" -of GTiff $b7 $b7_f".tif" 
 
     echo "Fill-nodata para pixel-qa"
-    gdal_fillnodata.py -md 15 -b 1 -nomask -mask $bq_f"_mask.tif" -of GTiff $bq $bq_f".tif" 
+    $ruta/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $bq_f"_mask.tif" -of GTiff $bq $bq_f".tif" 
 }
 
 function upload_to_S3 (){
