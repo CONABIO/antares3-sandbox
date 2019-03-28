@@ -5,7 +5,7 @@
 ./sample_training_polygons_rand_simple.py input_raster.tif output_dir 0.0001
 First argument: input categorical raster
 Second argument: output directory where 1 shapefile will be written
-Third argument: fraction of dataset to be sampled
+Third argument: fraction of dataset to be sampled. If -1 the total number of samples will be ~310000
 """
 
 import rasterio
@@ -56,6 +56,9 @@ if __name__ == "__main__":
             # Count total number of pixels per class
             pxpcl = np.array([train_arr[train_arr == cl].size for cl in range(1,32)])
 
+            if frac < 0:
+                frac = 310000/np.sum(pxpcl)
+
             # Generate number of samples per class
             smplpxpcl = np.array([int(np.ceil(train_arr[train_arr == cl].size*frac)) for cl in range(1,32)])
 
@@ -88,3 +91,4 @@ if __name__ == "__main__":
             print(e)
             traceback.print_exc()
             pass
+
