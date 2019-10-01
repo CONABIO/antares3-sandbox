@@ -4,15 +4,16 @@ delete=n
 
 function usage()
 {
-		printf "\n"
+    printf "\n"
     printf "\t\t Fill nodata proccess for Landsat 7 scenes\n"
 		printf "\n"
-    printf "Usage: Some example here\n"
+    printf "Usage: gaps.sh --path /path/scenes --delete --outdir /output/\n"
     printf "\n"
-    printf "  -h --help\t\tPrints this help and exits\n"
-    printf "  -p --path\tPath to Landsat 7 scenes \n"
-    printf "  -d --delete\tDelete original scenes (default off)\n"
-		printf "\n"
+    printf "  --help  --help\tPrints this help and exits\n"
+    printf "  --path  --path\tPath to Landsat 7 scenes \n"
+    printf "  --delete  --delete\tDelete original scenes (default off)\n"
+    printf "  --outdir  --outdir\tOutput directory for filled scenes\n"
+    printf "\n"
 }
 
 # Works on Linux
@@ -22,8 +23,8 @@ if [[ $? -ne 4 ]]; then
     exit 1
 fi
 
-OPTIONS=hp:d
-LONGOPTIONS=help,path:,delete
+OPTIONS=hp:do:
+LONGOPTIONS=help,path:,delete,outdir
 
 PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$0" -- "$@")
 
@@ -40,16 +41,20 @@ eval set -- "$PARSED"
 # options are split until we see --
 while true; do
     case "$1" in
-        -h|--help)
+        --help)
             usage
             exit
             ;;
-        -p|--path)
+        --path)
             path="$2"
             shift 2
             ;;
-        -d|--delete)
+        --delete)
             delete=y
+            shift
+            ;;
+        --outdir)
+            outdir="$3"
             shift
             ;;
         --)
@@ -57,7 +62,7 @@ while true; do
             break
             ;;
         *)
-            printf "Programming error\n"
+            printf "Unknow value argument\n"
             exit 3
             ;;
     esac
@@ -72,7 +77,7 @@ function check_path_param(){
   fi
   if [ -d "$path" ]; then
     # Take action if $path exists
-    fill_nodata_scene "$@"
+    fill_nodata_scene "$2"
   else
     #  Control will jump here if $path does NOT exists
     echo "Error: ${path} not found. Can not continue."
@@ -81,7 +86,7 @@ function check_path_param(){
 }
 
 function check_entry(){
-  echo echo "Processing scenes in ${path}"
+  echo "Processing scenes in ${path}"
   for item in ${path}/*
   do
     if [[ -d $item ]]; then
@@ -104,11 +109,17 @@ function untar_scene (){
   #echo "untar " $1
   NAME=$(basename $1 .tar.gz)
   echo $NAME
+  fill_nodata_scene $1 $NAME
 
+}
+
+function save_data(){
+  echo "Saving processed data in" $1
 }
 
 function fill_nodata_scene(){
   echo "Procesando fill nodata $1"
+  save_data $outdir/$NAME
 }
 
 function delete_original(){
