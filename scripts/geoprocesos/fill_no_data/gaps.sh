@@ -1,39 +1,74 @@
 #!/bin/bash
 
-show_options() {
-    # if no param is given, display a menu and then exit
-    (( $# < 1 )) && {
-        # display a menu of options
-        echo " "
-        echo "            MAIN MENU"
-        echo
-        echo "       -p                Path to scenes"
-        echo "       -d                Delete original scenes after fill-nodata completes"
-    }
+#path=$(pwd)
+delete=n
+
+function usage()
+{
+		printf "\n"
+    printf "\t\t Fill nodata proccess for Landsat 7 scenes\n"
+		printf "\n"
+    printf "Usage: Some example here\n"
+    printf "\n"
+    printf "  -h --help\t\tPrints this help and exits\n"
+    printf "  -p --path\tPath to Landsat 7 scenes (default $path)\n"
+    printf "  -d --delete\tDelete original scenes (default off)\n"
+		printf "\n"
 }
 
-function get_scene (){
-  echo "Lee escenas de $1"
-}
+# Works on Linux
+getopt --test > /dev/null
+if [[ $? -ne 4 ]]; then
+    printf "I’m sorry, `getopt --test` failed in this environment.\n"
+    exit 1
+fi
 
-function fill_nodata (){
-  echo "Ejecuta fill"
-}
+OPTIONS=hp:d
+LONGOPTIONS=help,path:,delete
 
-function delete_original (){
-  echo "Borrando escenas originales"
-}
+PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$0" -- "$@")
 
-main() {
+if [[ $? -ne 0 ]]; then
+    # e.g. $? == 1
+    #  then getopt has complained about wrong arguments to stdout
+    usage
+    exit 2
+fi
 
-  if [[ $# -eq 0 ]] ; then
-    show_options
-    exit 0
-  fi
+# read getopt’s output this way to handle the quoting right:
+eval set -- "$PARSED"
 
-  get_scene "$@"
-  fill_nodata
-  delete_original "$@"
-}
+# options are split until we see --
+while true; do
+    case "$1" in
+        -h|--help)
+            usage
+            exit
+            ;;
+        -p|--path)
+            path="$2"
+            shift 2
+            ;;
+        -d|--delete)
+            delete=y
+            shift
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            printf "Programming error\n"
+            exit 3
+            ;;
+    esac
+done
 
-main "$@"
+# handle non-option arguments
+if [[ -z "$path" ]]; then
+    usage
+    printf "[ERROR] A path to scene(s) is required.\n"
+    exit 4
+fi
+
+echo "Procesing in "$path 
