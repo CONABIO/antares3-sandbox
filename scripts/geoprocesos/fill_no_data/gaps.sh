@@ -6,13 +6,14 @@ function usage()
 {
     printf "\n"
     printf "\t\t Fill nodata proccess for Landsat 7 scenes\n"
+		printf "\n"
+    printf "Usage: bash gaps.sh --path /path/scenes --delete --outdir /output\n"
+    printf "Usage: bash gaps.sh --path /path/scenes --outdir /output\n"
     printf "\n"
-    printf "Usage: gaps.sh --path /path/scenes --delete --outdir /output/\n"
-    printf "\n"
-    printf "  --help  --help\tPrints this help and exits\n"
-    printf "  --path  --path\tPath to Landsat 7 scenes \n"
-    printf "  --delete  --delete\tDelete original scenes (default off)\n"
-    printf "  --outdir  --outdir\tOutput directory for filled scenes\n"
+    printf "  --help  \tPrints this help and exits\n"
+    printf "  --path  \tPath to Landsat 7 scenes \n"
+    printf "  --delete \tDelete original scenes (default off)\n"
+    printf "  --outdir \tOutput directory for filled scenes\n"
     printf "\n"
 }
 
