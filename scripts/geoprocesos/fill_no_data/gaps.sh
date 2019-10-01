@@ -74,26 +74,56 @@ function check_path_param(){
     # Take action if $path exists
     fill_nodata_scene "$@"
   else
-    #  Control will jump here if $path does NOT exists 
+    #  Control will jump here if $path does NOT exists
     echo "Error: ${path} not found. Can not continue."
     exit 1
   fi
 }
 
+function check_entry(){
+  echo echo "Processing scenes in ${path}"
+  for item in ${path}/*
+  do
+    if [[ -d $item ]]; then
+      echo "$item is a directory"
+      echo "This script only works with compressed data"
+    elif [[ -f $item ]]; then
+      #echo "$item is a file"
+      if [[ ${item: -3} == ".gz" ]]; then
+        untar_scene "$item"
+        #fill_nodata_scene "$item"
+      fi
+    else
+      echo "$item is not a valid entry"
+      exit 1
+    fi
+  done
+}
+
+function untar_scene (){
+  #echo "untar " $1
+  NAME=$(basename $1 .tar.gz)
+  echo $NAME
+
+}
+
 function fill_nodata_scene(){
-  echo echo "Processing scenes in ${path}..."
+  echo "Procesando fill nodata $1"
 }
 
 function delete_original(){
   # Delete the unzipped file after running sen2cor
-  if [ "$delete" == "y" ]; then
-     echo "deleting original scenes"
-  fi
+  echo "deleting original scenes"
+
 }
 
 main() {
     check_path_param "$@"
-    delete_original "$@"
+    check_entry "$@"
+    if [ "$delete" == "y" ]; then
+       delete_original "$@"
+    fi
+
 }
 
 main "$@"
