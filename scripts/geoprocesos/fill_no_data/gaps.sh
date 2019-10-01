@@ -6,7 +6,7 @@ function usage()
 {
     printf "\n"
     printf "\t\t Fill nodata proccess for Landsat 7 scenes\n"
-		printf "\n"
+    printf "\n"
     printf "Usage: gaps.sh --path /path/scenes --delete --outdir /output/\n"
     printf "\n"
     printf "  --help  --help\tPrints this help and exits\n"
