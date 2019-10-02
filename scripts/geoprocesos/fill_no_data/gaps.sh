@@ -78,7 +78,7 @@ function check_path_param(){
   fi
   if [ -d "$path" ]; then
     # Take action if $path exists
-    fill_nodata_scene "$2"
+    check_entry "$@"
   else
     #  Control will jump here if $path does NOT exists
     echo "Error: ${path} not found. Can not continue."
@@ -96,31 +96,40 @@ function check_entry(){
     elif [[ -f $item ]]; then
       #echo "$item is a file"
       if [[ ${item: -3} == ".gz" ]]; then
-        untar_scene "$item"
-        #fill_nodata_scene "$item"
+        get_scene_name "$item"
       fi
     else
       echo "$item is not a valid entry"
       exit 1
     fi
+    echo "------------------"
   done
 }
 
-function untar_scene (){
+function get_scene_name (){
   #echo "untar " $1
   NAME=$(basename $1 .tar.gz)
-  echo $NAME
   fill_nodata_scene $1 $NAME
 
 }
 
-function save_data(){
-  echo "Saving processed data in" $1
+function untar_data(){
+  echo "Saving processed data in" $2/$3
+  mkdir -p $2/$3
+  tar xvzf $1 -C $2/$3
+  rm $2/$3/*radsat*
+  rm $2/$3/*atmos*
+  rm $2/$3/*cloud*
 }
 
 function fill_nodata_scene(){
   echo "Procesando fill nodata $1"
-  save_data $outdir/$NAME
+  untar_data $1 $outdir $NAME
+  for tif in $outdir/$NAME/*.tif
+  do
+    echo "fill no data para " $tif
+  done
+
 }
 
 function delete_original(){
@@ -131,7 +140,7 @@ function delete_original(){
 
 main() {
     check_path_param "$@"
-    check_entry "$@"
+    #check_entry "$@"
     if [ "$delete" == "y" ]; then
        delete_original "$@"
     fi
