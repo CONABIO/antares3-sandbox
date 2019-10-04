@@ -1,6 +1,7 @@
 #!/bin/bash
 
 delete=n
+GDAL_PATH=/usr/bin
 
 function usage()
 {
@@ -104,6 +105,7 @@ function check_entry(){
     fi
     echo "------------------"
   done
+
 }
 
 function get_scene_name (){
@@ -114,20 +116,39 @@ function get_scene_name (){
 }
 
 function untar_data(){
-  echo "Saving processed data in" $2/$3
+  echo "Processed data will be save in" $2/$3
+  echo "Untar scene..."
   mkdir -p $2/$3
   tar xvzf $1 -C $2/$3
+  echo "Removing useless bands"
   rm $2/$3/*radsat*
   rm $2/$3/*atmos*
   rm $2/$3/*cloud*
 }
 
 function fill_nodata_scene(){
-  echo "Procesando fill nodata $1"
+
+  echo "Processing fill nodata for $1"
   untar_data $1 $outdir $NAME
   for tif in $outdir/$NAME/*.tif
   do
-    echo "fill no data para " $tif
+    file=$(basename $tif ".tif")
+    echo "Generating binary mask for: " $file
+    # Masking generation
+    if [[ $file == *"pixel_qa"* ]]; then
+      CALC_QA="0*(A==1)+1*(A!=1)"
+      $GDAL_PATH/gdal_calc.py -A $tif --outfile=$outdir/$NAME/$file"_mask.tif" --calc="$CALC_QA" --co="COMPRESS=LZW" --NoDataValue=0
+    else
+      CALC="0*(A==-9999)+1*(A!=-9999)"
+      $GDAL_PATH/gdal_calc.py -A $tif --outfile=$outdir/$NAME/$file"_mask.tif" --calc="$CALC" --co="COMPRESS=LZW"
+    fi
+    # End of masking generation
+
+    echo "Filling nodata values for band: " $file
+    # Fill no NoData
+    $GDAL_PATH/gdal_fillnodata.py -md 15 -b 1 -nomask -mask $outdir/$NAME/$file"_mask.tif" -of GTiff $tif $outdir/$NAME/$file".tif"
+    # End of fill NoData
+    echo " "
   done
 
 }
@@ -140,7 +161,6 @@ function delete_original(){
 
 main() {
     check_path_param "$@"
-    #check_entry "$@"
     if [ "$delete" == "y" ]; then
        delete_original "$@"
     fi
