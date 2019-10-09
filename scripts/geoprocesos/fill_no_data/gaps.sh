@@ -103,16 +103,15 @@ function check_entry(){
       echo "$item is not a valid entry"
       exit 1
     fi
-    echo "------------------"
+    echo " "
+    COUNTER=$((COUNTER+1))
   done
-
 }
 
 function get_scene_name (){
   #echo "untar " $1
   NAME=$(basename $1 .tar.gz)
   fill_nodata_scene $1 $NAME
-
 }
 
 function untar_data(){
@@ -127,7 +126,8 @@ function untar_data(){
 }
 
 function fill_nodata_scene(){
-
+  echo $COUNTER / $TOTAL
+  echo "------------------"
   echo "Processing fill nodata for $1"
   untar_data $1 $outdir $NAME
   for tif in $outdir/$NAME/*.tif
@@ -160,7 +160,10 @@ function delete_original(){
 }
 
 main() {
+    COUNTER=1
+    TOTAL=$(ls -1f $path/*gz | wc -l)
     check_path_param "$@"
+
     if [ "$delete" == "y" ]; then
        delete_original "$@"
     fi
