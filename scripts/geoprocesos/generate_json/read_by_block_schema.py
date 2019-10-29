@@ -1,7 +1,7 @@
 import numpy as np
 import sys
 import json
-import osimport os
+import os
 
 from shutil import copyfile
 from scipy.constants.constants import hectare
