@@ -1,7 +1,7 @@
 import numpy as np
 import sys
 import json
-import os
+import osimport os
 
 from shutil import copyfile
 from scipy.constants.constants import hectare
@@ -97,8 +97,8 @@ schema       = sys.argv[2]
 templete_pie = sys.argv[3]
 templete_bar = sys.argv[4]
 
-dest_pie = "/Users/rmartinez/Desktop/cobertura_json/json_pie/pie_sentinel_31_2018/"
-dest_bar = "/Users/rmartinez/Desktop/cobertura_json/json_bar/bar_sentinel_31_2018/"
+dest_pie = os.getcwd() + "/"
+dest_bar = os.getcwd() + "/"
 
 copyfile(templete_pie, dest_pie+os.path.basename(rasterfile).split('.')[0]+'_pie.json')
 copyfile(templete_bar, dest_bar+os.path.basename(rasterfile).split('.')[0]+'_bar.json')
