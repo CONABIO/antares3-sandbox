@@ -1,0 +1,93 @@
+[
+    {
+        "name": "Ha",
+        "type": "pie",
+        "data": [
+            {
+                "name": "Bosques de aciculifolias y escuamifolias",
+                "y": 0.0,
+                "color": "#005100"
+            },
+            {
+                "name": "Bosques latifoliados",
+                "y": 0.0,
+                "color": "#007e00"
+            },
+            {
+                "name": "Bosque humedo de montania",
+                "y": 0.0,
+                "color": "#00d900"
+            },
+            {
+                "name": "Manglar y peten",
+                "y": 0.0,
+                "color": "#55aaff"
+            },
+            {
+                "name": "Selvas humedas",
+                "y": 0.0,
+                "color": "#ff007f"
+            },
+            {
+                "name": "Selvas secas",
+                "y": 0.0,
+                "color": "#ff55ff"
+            },
+            {
+                "name": "Matorral alto denso",
+                "y": 0.0,
+                "color": "#6d4724"
+            },
+            {
+                "name": "Matorral mesico",
+                "y": 0.0,
+                "color": "#ffb265"
+            },
+            {
+                "name": "Matorral bajo abierto",
+                "y": 0.0,
+                "color": "#aa8000"
+            },
+            {
+                "name": "Vegetacion acuatica menor",
+                "y": 0.0,
+                "color": "#aaffff"
+            },
+            {
+                "name": "Vegetacion de suelos arenosos",
+                "y": 0.0,
+                "color": "#a2ecb1"
+            },
+            {
+                "name": "Vegetacion halofila",
+                "y": 0.0,
+                "color": "#00aa7f"
+            },
+            {
+                "name": "Pastizales y otra vegetacion herbacea",
+                "y": 0.0,
+                "color": "#e9e9af"
+            },
+            {
+                "name": "Tierras agricolas",
+                "y": 0.0,
+                "color": "#faff98"
+            },
+            {
+                "name": "Urbano y construido",
+                "y": 0.0,
+                "color": "#4d1009"
+            },
+            {
+                "name": "Suelo desnudo",
+                "y": 0.0,
+                "color": "#c7c8bc"
+            },
+            {
+                "name": "Agua",
+                "y": 0.0,
+                "color": "#00007f"
+            }
+        ]
+    }
+]

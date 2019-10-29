@@ -1,0 +1,70 @@
+{
+  "1" : {
+    "classname"  : "Bosques de aciculifolias y escuamifolias",
+    "id" : 0
+  },
+  "2" : {
+    "classname"  : "Bosques latifoliados",
+    "id" : 1
+  },
+  "3" : {
+    "classname"  : "Bosque humedo de montania",
+    "id" : 2
+  },
+  "4" : {
+    "classname"  : "Manglar y peten",
+    "id" : 3
+  },
+  "5" : {
+    "classname"  : "Selvas humedas",
+    "id" : 4
+  },
+  "6" : {
+    "classname"  : "Selvas secas",
+    "id" : 5
+  },
+  "7" : {
+    "classname"  : "Matorral alto denso",
+    "id" : 6
+  },
+  "8" : {
+    "classname"  : "Matorral mesico",
+    "id" : 7
+  },
+  "9" : {
+    "classname"  : "Matorral bajo abierto",
+    "id" : 8
+  },
+  "10" : {
+    "classname"  : "Vegetacion acuatica menor",
+    "id" : 9
+  },
+  "11" : {
+    "classname"  : "Vegetacion de suelos arenosos",
+    "id" : 10
+  },
+  "12" : {
+    "classname"  : "Vegetacion halofila",
+    "id" : 11
+  },
+  "13" : {
+    "classname"  : "Pastizales y otra vegetacion herbacea",
+    "id" : 12
+  },
+  "14" : {
+    "classname"  : "Tierras agricolas",
+    "id" : 13
+  },
+  "15" : {
+    "classname"  : "Urbano y construido",
+    "id" : 14
+  },
+  "16" : {
+    "classname"  : "Suelo desnudo",
+    "id" : 15
+  },
+  "17" : {
+    "classname"  : "Agua",
+    "id" : 16
+  }
+}

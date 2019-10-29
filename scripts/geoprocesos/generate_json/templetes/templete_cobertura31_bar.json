@@ -1,0 +1,136 @@
+[
+  {
+    "name": "  31 Clases de cobertura. ",
+    "type": "column",
+    "yAxis": 1,
+    "data": [
+      [
+        "Bosque de Coniferas: Oyamel, Ayarin y Cedro",
+        0.0
+      ],
+      [
+        "Bosque de Coniferas: de Pino y Tascate",
+        0.0
+      ],
+      [
+        "Bosque de Encino y Bosque de Galeria",
+        0.0
+      ],
+      [
+        "Chaparral",
+        0.0
+      ],
+      [
+        "Mezquital y Matorral Submontano",
+        0.0
+      ],
+      [
+        "Bosque Mesofilo y Selva Baja Perennifolia",
+        0.0
+      ],
+      [
+        "Selva Baja y Mediana Subperennifolia, Bosque de Galeria y Palmar Natural",
+        0.0
+      ],
+      [
+        "Manglar y Peten",
+        0.0
+      ],
+      [
+        "Selva Mediana y Alta Perennifolia",
+        0.0
+      ],
+      [
+        "Selva Alta Subperennifolia",
+        0.0
+      ],
+      [
+        "Selva Baja Caducifolia Subcaducifolia y Matorral Subtropical",
+        0.0
+      ],
+      [
+        "Selva Mediana Caducifolia y Subcaducifolia",
+        0.0
+      ],
+      [
+        "Mezquital Xerofilo Galeria y Desertico Microfilo",
+        0.0
+      ],
+      [
+        "Matorral Crasicaule",
+        0.0
+      ],
+      [
+        "Matorral Espinoso Tamaulipeco",
+        0.0
+      ],
+      [
+        "Matorral Sarco-Crasicaule",
+        0.0
+      ],
+      [
+        "Matorral Sarcocaule",
+        0.0
+      ],
+      [
+        "Matorral Sarco-Crasicaule de Neblina",
+        0.0
+      ],
+      [
+        "Matorral Rosetofilo Costero",
+        0.0
+      ],
+      [
+        "Matorral Desertico Rosetofilo",
+        0.0
+      ],
+      [
+        "Popal",
+        0.0
+      ],
+      [
+        "Tular",
+        0.0
+      ],
+      [
+        "Vegetacion de Dunas Costeras",
+        0.0
+      ],
+      [
+        "Vegetacion de Desiertos Arenosos",
+        0.0
+      ],
+      [
+        "Vegetacion Halofila Hidrofila",
+        0.0
+      ],
+      [
+        "Vegetacion Halofila Xerofila y Gipsofila",
+        0.0
+      ],
+      [
+        "Pastizales",
+        0.0
+      ],
+      [
+        "Tierras Agricolas",
+        0.0
+      ],
+      [
+        "Urbano y Construido",
+        0.0
+      ],
+      [
+        "Suelo Desnudo",
+        0.0
+      ],
+      [
+        "Agua",
+        0.0
+      ]
+    ],
+    "tooltip": {
+      "valueSuffix": "%"
+    }
+  }
+]

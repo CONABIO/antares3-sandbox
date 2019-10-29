@@ -1,0 +1,80 @@
+[
+  {
+    "name": "  17 Clases de cobertura. ",
+    "type": "column",
+    "yAxis": 1,
+    "data": [
+      [
+        "Bosques de aciculifolias y escuamifolias",
+        0.0
+      ],
+      [
+        "Bosques latifoliados",
+        0.0
+      ],
+      [
+        "Bosque humedo de montania",
+        0.0
+      ],
+      [
+        "Manglar y peten",
+        0.0
+      ],
+      [
+        "Selvas humedas",
+        0.0
+      ],
+      [
+        "Selvas secas",
+        0.0
+      ],
+      [
+        "Matorral alto denso",
+        0.0
+      ],
+      [
+        "Matorral mesico",
+        0.0
+      ],
+      [
+        "Matorral bajo abierto",
+        0.0
+      ],
+      [
+        "Vegetacion acuatica menor",
+        0.0
+      ],
+      [
+        "Vegetacion de suelos arenosos",
+        0.0
+      ],
+      [
+        "Vegetacion halofila",
+        0.0
+      ],
+      [
+        "Pastizales y otra vegetacion herbacea",
+        0.0
+      ],
+      [
+        "Tierras agricolas",
+        0.0
+      ],
+      [
+        "Urbano y construido",
+        0.0
+      ],
+      [
+        "Suelo desnudo",
+        0.0
+      ],
+      [
+        "Agua",
+        0.0
+      ]
+    ],
+    "tooltip": {
+      "valueSuffix": "%"
+    }
+  }
+]

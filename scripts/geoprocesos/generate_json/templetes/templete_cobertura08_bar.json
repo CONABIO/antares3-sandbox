@@ -1,0 +1,44 @@
+[
+  {
+    "name": "  8 Clases de cobertura. ",
+    "type": "column",
+    "yAxis": 1,
+    "data": [
+      [
+        "Bosque Templado",
+        0.0
+      ],
+      [
+        "Selva Perennifolia, Subperennifolia, Caducifolia y Subcaducifolia",
+        0.0
+      ],
+      [
+        "Matorral",
+        0.0
+      ],
+      [
+        "Vegetacion menor y Pastizales",
+        0.0
+      ],
+      [
+        "Tierras Agricolas",
+        0.0
+      ],
+      [
+        "Urbano y Construido",
+        0.0
+      ],
+      [
+        "Suelo Desnudo",
+        0.0
+      ],
+      [
+        "Agua",
+        0.0
+      ]
+    ],
+    "tooltip": {
+      "valueSuffix": "%"
+    }
+  }
+]

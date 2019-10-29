@@ -1,0 +1,126 @@
+{
+  "1" : {
+    "classname"  : "Bosque de Coniferas: Oyamel, Ayarin y Cedro",
+    "id" : 0
+  },
+  "2" : {
+    "classname"  : "Bosque de Coniferas: de Pino y Tascate",
+    "id" : 1
+  },
+  "3" : {
+    "classname"  : "Bosque de Encino y Bosque de Galeria",
+    "id" : 2
+  },
+  "4" : {
+    "classname"  : "Chaparral",
+    "id" : 3
+  },
+  "5" : {
+    "classname"  : "Mezquital y Matorral Submontano",
+    "id" : 4
+  },
+  "6" : {
+    "classname"  : "Bosque Mesofilo y Selva Baja Perennifolia",
+    "id" : 5
+  },
+  "7" : {
+    "classname"  : "Selva Baja y Mediana Subperennifolia, Bosque de Galeria y Palmar Natural",
+    "id" : 6
+  },
+  "8" : {
+    "classname"  : "Manglar y Peten",
+    "id" : 7
+  },
+  "9" : {
+    "classname"  : "Selva Mediana y Alta Perennifolia",
+    "id" : 8
+  },
+  "10" : {
+    "classname"  : "Selva Alta Subperennifolia",
+    "id" : 9
+  },
+  "11" : {
+    "classname"  : "Selva Baja Caducifolia Subcaducifolia y Matorral Subtropical",
+    "id" : 10
+  },
+  "12" : {
+    "classname"  : "Selva Mediana Caducifolia y Subcaducifolia",
+    "id" : 11
+  },
+  "13" : {
+    "classname"  : "Mezquital Xerofilo Galeria y Desertico Microfilo",
+    "id" : 12
+  },
+  "14" : {
+    "classname"  : "Matorral Crasicaule",
+    "id" : 13
+  },
+  "15" : {
+    "classname"  : "Matorral Espinoso Tamaulipeco",
+    "id" : 14
+  },
+  "16" : {
+    "classname"  : "Matorral Sarco-Crasicaule",
+    "id" : 15
+  },
+  "17" : {
+    "classname"  : "Matorral Sarcocaule",
+    "id" : 16
+  },
+  "18" : {
+    "classname"  : "Matorral Sarco-Crasicaule de Neblina",
+    "id" : 17
+  },
+  "19" : {
+    "classname"  : "Matorral Rosetofilo Costero",
+    "id" : 18
+  },
+  "20" : {
+    "classname"  : "Matorral Desertico Rosetofilo",
+    "id" : 19
+  },
+  "21" : {
+    "classname"  : "Popal",
+    "id" : 20
+  },
+  "22" : {
+    "classname"  : "Tular",
+    "id" : 21
+  },
+  "23" : {
+    "classname"  : "Vegetacion de Dunas Costeras",
+    "id" : 22
+  },
+  "24" : {
+    "classname"  : "Vegetacion de Desiertos Arenosos",
+    "id" : 23
+  },
+  "25" : {
+    "classname"  : "Vegetacion Halofila Hidrofila",
+    "id" : 24
+  },
+  "26" : {
+    "classname"  : "Vegetacion Halofila Xerofila y Gipsofila",
+    "id" : 25
+  },
+  "27" : {
+    "classname"  : "Pastizales",
+    "id" : 26
+  },
+  "28" : {
+    "classname"  : "Tierras Agricolas",
+    "id" : 27
+  },
+  "29" : {
+    "classname"  : "Urbano y Construido",
+    "id" : 28
+  },
+  "30" : {
+    "classname"  : "Suelo Desnudo",
+    "id" : 29
+  },
+  "31" : {
+    "classname"  : "Agua",
+    "id" : 30
+  }
+}

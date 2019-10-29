@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Ha",
+        "type": "pie",
+        "data": [
+            {
+                "name": "Bosque Templado",
+                "y": 0.0,
+                "color": "#4d642d"
+            },
+            {
+                "name": "Selva Perennifolia, Subperennifolia, Caducifolia y Subcaducifolia",
+                "y": 0.0,
+                "color": "#4cb974"
+            },
+            {
+                "name": "Matorral",
+                "y": 0.0,
+                "color": "#e59f26"
+            },
+            {
+                "name": "Vegetacion menor y Pastizales",
+                "y": 0.0,
+                "color": "#e0b762"
+            },
+            {
+                "name": "Tierras Agricolas",
+                "y": 0.0,
+                "color": "#9c9877"
+            },
+            {
+                "name": "Urbano y Construido",
+                "y": 0.0,
+                "color": "#b4b8bc"
+            },
+            {
+                "name": "Suelo Desnudo",
+                "y": 0.0,
+                "color": "#3f2f21"
+            },
+            {
+                "name": "Agua",
+                "y": 0.0,
+                "color": "#2eccfa"
+            }
+        ]
+    }
+]

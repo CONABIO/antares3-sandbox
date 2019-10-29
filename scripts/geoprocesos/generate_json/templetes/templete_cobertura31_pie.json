@@ -1,0 +1,163 @@
+[
+    {
+        "name": "Ha",
+        "type": "pie",
+        "data": [
+            {
+                "name": "Bosque de Coniferas: Oyamel, Ayarin y Cedro",
+                "y": 0.0,
+                "color": "#005100"
+            },
+            {
+                "name": "Bosque de Coniferas: de Pino y Tascate",
+                "y": 0.0,
+                "color": "#003c00"
+            },
+            {
+                "name": "Bosque de Encino y Bosque de Galeria",
+                "y": 0.0,
+                "color": "#007e00"
+            },
+            {
+                "name": "Chaparral",
+                "y": 0.0,
+                "color": "#8baa00"
+            },
+            {
+                "name": "Mezquital y Matorral Submontano",
+                "y": 0.0,
+                "color": "#aaaa00"
+            },
+            {
+                "name": "Bosque Mesofilo y Selva Baja Perennifolia",
+                "y": 0.0,
+                "color": "#00d900"
+            },
+            {
+                "name": "Selva Baja y Mediana Subperennifolia, Bosque de Galeria y Palmar Natural",
+                "y": 0.0,
+                "color": "#ff95ff"
+            },
+            {
+                "name": "Manglar y Peten",
+                "y": 0.0,
+                "color": "#55aaff"
+            },
+            {
+                "name": "Selva Mediana y Alta Perennifolia",
+                "y": 0.0,
+                "color": "#ff007f"
+            },
+            {
+                "name": "Selva Alta Subperennifolia",
+                "y": 0.0,
+                "color": "#ff557f"
+            },
+            {
+                "name": "Selva Baja Caducifolia Subcaducifolia y Matorral Subtropical",
+                "y": 0.0,
+                "color": "#aa007f"
+            },
+            {
+                "name": "Selva Mediana Caducifolia y Subcaducifolia",
+                "y": 0.0,
+                "color": "#ff55ff"
+            },
+            {
+                "name": "Mezquital Xerofilo Galeria y Desertico Microfilo",
+                "y": 0.0,
+                "color": "#aa8000"
+            },
+            {
+                "name": "Matorral Crasicaule",
+                "y": 0.0,
+                "color": "#ffb265"
+            },
+            {
+                "name": "Matorral Espinoso Tamaulipeco",
+                "y": 0.0,
+                "color": "#aa5500"
+            },
+            {
+                "name": "Matorral Sarco-Crasicaule",
+                "y": 0.0,
+                "color": "#e29700"
+            },
+            {
+                "name": "Matorral Sarcocaule",
+                "y": 0.0,
+                "color": "#966400"
+            },
+            {
+                "name": "Matorral Sarco-Crasicaule de Neblina",
+                "y": 0.0,
+                "color": "#bd7e00"
+            },
+            {
+                "name": "Matorral Rosetofilo Costero",
+                "y": 0.0,
+                "color": "#6d3600"
+            },
+            {
+                "name": "Matorral Desertico Rosetofilo",
+                "y": 0.0,
+                "color": "#c46200"
+            },
+            {
+                "name": "Popal",
+                "y": 0.0,
+                "color": "#aaffff"
+            },
+            {
+                "name": "Tular",
+                "y": 0.0,
+                "color": "#a2ecb1"
+            },
+            {
+                "name": "Vegetacion de Dunas Costeras",
+                "y": 0.0,
+                "color": "#00aa7f"
+            },
+            {
+                "name": "Vegetacion de Desiertos Arenosos",
+                "y": 0.0,
+                "color": "#008a65"
+            },
+            {
+                "name": "Vegetacion Halofila Hidrofila",
+                "y": 0.0,
+                "color": "#005941"
+            },
+            {
+                "name": "Vegetacion Halofila Xerofila y Gipsofila",
+                "y": 0.0,
+                "color": "#e9e9af"
+            },
+            {
+                "name": "Pastizales",
+                "y": 0.0,
+                "color": "#e9e9af"
+            },
+            {
+                "name": "Tierras Agricolas",
+                "y": 0.0,
+                "color": "#faff98"
+            },
+            {
+                "name": "Urbano y Construido",
+                "y": 222.999,
+                "color": "#4d1009"
+            },
+            {
+                "name": "Suelo Desnudo",
+                "y": 0.0,
+                "color": "#c7c8bc"
+            },
+            {
+                "name": "Agua",
+                "y": 0.0,
+                "color": "#00007f"
+            }
+        ]
+    }
+]

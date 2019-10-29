@@ -1,0 +1,34 @@
+{
+  "1" : {
+    "classname"  : "Bosque Templado",
+    "id" : 0
+  },
+  "2" : {
+    "classname"  : "Selva Perennifolia, Subperennifolia, Caducifolia y Subcaducifolia",
+    "id" : 1
+  },
+  "3" : {
+    "classname"  : "Matorral",
+    "id" : 2
+  },
+  "4" : {
+    "classname"  : "Vegetacion menor y Pastizales",
+    "id" : 3
+  },
+  "5" : {
+    "classname"  : "Tierras Agricolas",
+    "id" : 4
+  },
+  "6" : {
+    "classname"  : "Urbano y Construido",
+    "id" : 5
+  },
+  "7" : {
+    "classname"  : "Suelo Desnudo",
+    "id" : 6
+  },
+  "8" : {
+    "classname"  : "Agua",
+    "id" : 7
+  }
+}
